@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-empty": "@vant/weapp/empty/index"
+  },
+  "navigationBarTitleText": "活动日历",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

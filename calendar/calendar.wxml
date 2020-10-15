@@ -1,0 +1,63 @@
+<!--活动日历 wanghan-->
+
+<view class="default_date">
+  <!--左右箭头 -->
+   <view class="arrow"
+         bindtap="lastOrNextMonth" 
+         data-to="{{0}}">
+    <image src="../../images/left_arrow.png" 
+        class="data_left" 
+        catch="lastOrNextMonth" 
+        data-to="{{0}}"
+        ></image>
+  </view>
+  <view bindtap="openPoppable" style="display:inline-block;">{{ dataCurrent }}</view>
+  <view class="arrow"
+        bindtap="lastOrNextMonth" 
+        data-to="{{1}}">
+    <image src="../../images/right_ arrow.png" 
+        class="data_right" 
+        catch="lastOrNextMonth" 
+        data-to="{{1}}"
+        ></image>
+  </view>
+</view>
+
+
+<!-- 折叠的日历 -->
+<view wx:if="{{!showPoppable}}">
+  <view class="van-calendar__weekdays">
+    <view wx:for="{{ weekdays }}" 
+          wx:key="index" 
+          class="van-calendar__weekday">
+      {{ item }}
+    </view>
+  </view>
+  <view class="van-calendar__days">
+    <view
+      wx:for="{{ days }}"
+      wx:key="index"
+      class="{{ item.select ? 'van-calendar__selected-day' : 'van-calendar__day' }}"
+      data-index="{{ index }}"
+      bindtap="onClick"
+    >
+      <view>
+        {{ item.day }}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 展开的日历 -->
+<van-calendar
+  wx:else
+  show-title="{{ false }}"
+  show-subtitle="{{ false }}"
+  default-date="{{ defaultDate }}"
+  min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  poppable="{{ false }}"
+  show-confirm="{{ false }}"
+  class="calendar"
+  bind:select="onSelect"
+/>
